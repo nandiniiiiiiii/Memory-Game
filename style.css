@@ -1,0 +1,106 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+:root{
+    --color1: rgb(0, 0, 0);
+    --color2: rgb(251, 251, 251);
+}
+
+body{
+    /* background: rgb(255, 255, 191); */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+    background-color: var(--color1);
+}
+
+.container{
+    height: 80vh;
+    width: 40vw;
+    background-color: var(--color2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 25px;
+    letter-spacing: 0.1rem;
+    /* border: black 2px solid; */
+}
+
+.name{
+    color: var(--color1);
+    font-size: 1.5rem;
+    text-decoration: solid;
+    letter-spacing: 0.2rem;
+}
+
+.btn{
+    width: 180px;
+    height: 40px;
+    background-color: var(--color1);
+    color: var(--color2);
+    border: none;
+    padding: 10px;
+    font-size: 1.0rem;
+    letter-spacing: 0.2rem;
+    font-weight: 700;
+}
+.btn:hover{
+    box-shadow: var(--color1);
+    transition: 0.5s;
+}
+
+.items{
+    height: 50vh;
+    width: 33vw;
+    background-color: var(--color1) ;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    align-items: center;
+    justify-content: center;
+    column-gap: 40px;
+}
+
+.item{
+    position: relative;
+    background-color: var(--color2);
+    color: var(--color1);
+    /* background-color: yellow; */
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    transform: rotateY(180deg);
+    transition: 0.25s;
+    border: 1px white solid;
+}
+
+.item::after{
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-color: var(--color1);
+    transform: rotateY(0deg);
+    transition: 0.25s;
+    border: 1px white solid;
+}
+
+.openbox.item{
+    transform: rotateY(0deg);
+}
+
+.openbox::after{
+    transform: rotateY(180deg); 
+    backface-visibility: hidden;
+}
+ 
+.boxopen::after,
+ .boxmatch::after{
+    transform: rotateY(180deg); 
+ }
